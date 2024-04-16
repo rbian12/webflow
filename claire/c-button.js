@@ -1,9 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const mainButton = document.querySelector('button[data-main="true"]');
+window.addEventListener('DOMContentLoaded', function() {
+  const mainButtons = document.querySelectorAll('a[data-main="true"]');
   const currentURL = window.location.href;
 
-  if (currentURL.includes('claire-web.realpha.com')) {
-    mainButton.href = '#';
-    mainButton.textContent = 'Join Waitlist';
+  if (currentURL === 'https://claire-web.realpha.com/') {
+    mainButtons.forEach(function(button) {
+      button.href = '#';
+      button.querySelector('.button-text').textContent = 'Join Waitlist';
+    });
   }
 });
