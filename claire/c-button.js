@@ -1,7 +1,9 @@
-const mainButton = document.querySelector('button[data-main="true"]');
-    const currentURL = window.location.href;
+document.addEventListener('DOMContentLoaded', function() {
+  const mainButton = document.querySelector('button[data-main="true"]');
+  const currentURL = window.location.href;
 
-    if (currentURL.includes('claire-web.realpha.com')) {
-      mainButton.href = '#';
-      mainButton.textContent = 'Join Waitlist';
-    } 
+  if (currentURL.includes('claire-web.realpha.com')) {
+    mainButton.href = '#';
+    mainButton.textContent = 'Join Waitlist';
+  }
+});
