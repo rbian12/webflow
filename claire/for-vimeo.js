@@ -4,7 +4,7 @@ document.getElementById('button-vimeo').addEventListener('click', function() {
     var vimeoVideo = document.getElementById('vimeo-video');
   
     watchInActionTwo.style.display = 'flex';
-    vimeoVideo.src = 'https://player.vimeo.com/video/939476362?quality=1080p&badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479';
+    vimeoVideo.src = 'https://player.vimeo.com/video/939476362?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479';
   });
   
   var closeButton = document.querySelector('.action_close_vimeo');
