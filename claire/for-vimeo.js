@@ -1,4 +1,4 @@
-// JavaScript
+// JavaScript hello
 document.getElementById('button-vimeo').addEventListener('click', function() {
     var watchInActionTwo = document.querySelector('.watch_in_action_two');
     var vimeoVideo = document.getElementById('vimeo-video');
