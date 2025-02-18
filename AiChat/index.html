@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            padding: 20px;
+            background: #f5f5ff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .faq-section {
+            padding: 20px;
+        }
+
+        .answer-section {
+            padding: 20px;
+        }
+
+        .accordion-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .accordion-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            color: #1a1a1a;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+        }
+
+        .accordion-content.active {
+            max-height: 200px;
+            padding: 0 20px 20px;
+        }
+
+        .toggle-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+
+        .answer-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background: #00ff9d;
+            color: black;
+            text-decoration: none;
+            border-radius: 100px;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        .contact-button svg {
+            margin-left: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .answer-section {
+                display: none;
+            }
+
+            .accordion-content {
+                background: #f8f8f8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="faq-section">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    What is AiChat?
+                    <span class="toggle-btn">+</span>
+                </button>
+                <div class="accordion-content">
+                    AiChat is an advanced AI chatbot platform designed to provide human-like conversations, personalized recommendations, and seamless customer engagement across multiple channels such as WhatsApp, Instagram, Messenger, Kakaotalk, LINE and many more.
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    How can an AiChat agentic AI improve customer service and drive business growth?
+                    <span class="toggle-btn">+</span>
+                </button>
+                <div class="accordion-content">
+                    AiChat's agentic AI can automate customer service, provide 24/7 support, and intelligently handle inquiries while learning from interactions to continuously improve service quality and drive business growth.
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    What channels does the AiChat support, and can it integrate with our existing systems (e.g., CRM, ERP)?
+                    <span class="toggle-btn">+</span>
+                </button>
+                <div class="accordion-content">
+                    AiChat supports multiple messaging platforms and can seamlessly integrate with your existing CRM, ERP, and other business systems for unified customer data management.
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    Can AiChat be customized to suit my business needs?
+                    <span class="toggle-btn">+</span>
+                </button>
+                <div class="accordion-content">
+                    Yes, AiChat can be fully customized to match your brand voice, business processes, and specific industry requirements through its flexible configuration options.
+                </div>
+            </div>
+        </div>
+
+        <div class="answer-section">
+            <h1 style="font-size: 32px; margin-bottom: 24px;">Answer</h1>
+            <div class="answer-content">
+                AiChat is an advanced AI chatbot platform designed to provide human-like conversations, personalized recommendations, and seamless customer engagement across multiple channels such as WhatsApp, Instagram, Messenger, Kakaotalk, LINE and many more.
+            </div>
+            <a href="#" class="contact-button">
+                Contact Us
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionContent = button.nextElementSibling;
+                const toggleBtn = button.querySelector('.toggle-btn');
+                
+                // Close all other accordion items
+                document.querySelectorAll('.accordion-content').forEach(content => {
+                    if (content !== accordionContent) {
+                        content.classList.remove('active');
+                        content.previousElementSibling.querySelector('.toggle-btn').textContent = '+';
+                    }
+                });
+
+                // Toggle current accordion item
+                accordionContent.classList.toggle('active');
+                toggleBtn.textContent = accordionContent.classList.contains('active') ? '−' : '+';
+
+                // Update answer section on desktop
+                if (window.innerWidth > 768) {
+                    const answerContent = document.querySelector('.answer-content');
+                    answerContent.textContent = accordionContent.textContent.trim();
+                }
+            });
+        });
+
+        // Initialize first item as active
+        const firstAccordion = document.querySelector('.accordion-header');
+        if (firstAccordion) {
+            firstAccordion.querySelector('.toggle-btn').textContent = '−';
+            firstAccordion.nextElementSibling.classList.add('active');
+        }
+    </script>
+</body>
+</html>
