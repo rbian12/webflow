@@ -109,3 +109,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     checkCookieConsent(); // Ensure banner is shown if needed
 });
+//adf
