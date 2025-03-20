@@ -1,0 +1,71 @@
+/* Custom Theme for Select2 */
+.select2-container--custom .select2-selection--single {
+  display: inline-flex;
+  width: 100%;
+  height: 54px;
+  margin-bottom: 0;
+  padding: 12px;
+  border: 1px solid var(--_primitive_colors---neutral--300); /* Same border color as input field */
+  border-radius: 9px; /* Rounded corners as in .input-field */
+  background-color: white; /* Background color */
+  color: var(--_text---primary); /* Text color */
+  font-size: 1rem;
+  line-height: 1.6;
+  position: relative; /* For positioning the arrow */
+  align-items: center; /* Center the text vertically */
+  justify-content: space-between; /* Space between text and arrow */
+}
+
+/* Placeholder Styling */
+.select2-container--custom .select2-selection--single .select2-selection__rendered {
+  color: var(--_colors---text--secondary); /* Disabled text color */
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Focus State Styling */
+.select2-container--custom .select2-selection--single:focus {
+  border-color: var(--_primitive_colors---brand--400); /* Border color on focus */
+}
+
+/* Arrow Styling */
+/* Initial state of the arrow */
+.select2-container--custom .select2-selection--single .select2-selection__arrow {
+  transition: transform 0.3s ease; /* Smooth transition */
+  background: url('https://cdn.prod.website-files.com/67d10e5f658426dcd2b05037/67d95762ab2b20eeb641862c_chevron-down.svg') no-repeat center center;
+  background-size: contain;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 1;
+}
+
+/* Dropdown Options */
+.select2-container--custom .select2-results__option {
+  padding: 10px 15px;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: var(--neutral--0);
+  color: var(--_text---primary);
+}
+
+/* Highlighted Option */
+.select2-container--custom .select2-results__option--highlighted {
+  background-color:var(--_primitive_colors---brand--100); /* Highlighted option color */
+}
+
+/* Style for the Select2 dropdown container */
+.select2-container--custom .select2-dropdown {
+  border: 1px solid var(--_primitive_colors---neutral--300);  /* Border around the dropdown */
+  border-radius: 9px;  /* Rounded corners for the dropdown */
+  max-height: 300px;  /* Optional: Limit the dropdown height */
+  overflow-y: auto;  /* Make dropdown scrollable if there are too many items */
+  font-size: 1rem;
+  line-height: 1.6;
+}
+/* Style for the disabled option in the dropdown */
+.select2-container--custom .select2-results__option[aria-disabled='true'] {
+  color: var(--_colors---text--disabled);  /* Gray text color */
+}

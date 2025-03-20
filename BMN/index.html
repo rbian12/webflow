@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Qualifier Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="lead-form">
+        <!-- Step 1: Veteran status -->
+        <div class="form-step" id="step-1">
+            <h2>Are you a Veteran or Active Duty member?</h2>
+            <label><input type="radio" name="veteran-status" value="Veteran" required> Veteran</label>
+            <label><input type="radio" name="veteran-status" value="Active Duty"> Active Duty</label>
+            <label><input type="radio" name="veteran-status" value="Neither"> Neither</label>
+            <button type="button" onclick="nextStep(1)">Next</button>
+        </div>
+
+        <!-- Step 2: Mortgage type -->
+        <div class="form-step" id="step-2">
+            <h2>What type of mortgage service are you interested in?</h2>
+            <label><input type="radio" name="mortgage-type" value="Buying a new home" required> Buying a new home</label>
+            <label><input type="radio" name="mortgage-type" value="Refinance/Modify current mortgage"> Refinance/Modify current mortgage</label>
+            <button type="button" onclick="nextStep(2)">Next</button>
+        </div>
+
+        <!-- Step 3: Location -->
+        <div class="form-step" id="step-3">
+            <h2>Where are you looking to purchase or refinance?</h2>
+            <input type="text" name="location" placeholder="Enter location" required>
+            <button type="button" onclick="nextStep(3)">Next</button>
+        </div>
+
+        <!-- Step 4: Timeframe -->
+        <div class="form-step" id="step-4">
+            <h2>How soon are you looking to purchase or refinance?</h2>
+            <label><input type="radio" name="timeframe" value="Immediately" required> Immediately (0–3 months)</label>
+            <label><input type="radio" name="timeframe" value="3–6 months"> 3–6 months</label>
+            <label><input type="radio" name="timeframe" value="6–12 months"> 6–12 months</label>
+            <label><input type="radio" name="timeframe" value="1+ year"> 1+ year</label>
+            <button type="button" onclick="nextStep(4)">Next</button>
+        </div>
+
+        <!-- Step 5: Monthly payment range -->
+        <div class="form-step" id="step-5">
+            <h2>How much are you comfortable paying monthly for your home?</h2>
+            <label><input type="radio" name="payment-range" value="Under $1,500" required> Under $1,500</label>
+            <label><input type="radio" name="payment-range" value="$1,500–$2,500"> $1,500 – $2,500</label>
+            <label><input type="radio" name="payment-range" value="$2,500–$4,000">$2,500 – $4,000</label>
+            <label><input type="radio" name="payment-range" value="$4,000+">$4,000+</label>
+            <label><input type="text" name="other-payment-range" placeholder="Other (specify)"></label>
+            <button type="button" onclick="nextStep(5)">Next</button>
+        </div>
+
+        <!-- Step 6: Additional details for buying a home -->
+        <div class="form-step" id="step-buying" style="display: none;">
+            <h2>What is your current living situation?</h2>
+            <label><input type="radio" name="living-situation" value="I own a home" required> I own a home</label>
+            <label><input type="radio" name="living-situation" value="I am currently renting"> I am currently renting</label>
+            <label><input type="radio" name="living-situation" value="Other living arrangements"> I have other living arrangements</label>
+            <button type="button" onclick="nextStep('buying')">Next</button>
+        </div>
+
+        <!-- Step 7: Contact details -->
+        <div class="form-step" id="step-contact">
+            <h2>Contact details</h2>
+            <label for="name">Your Name</label>
+            <input type="text" name="name" required>
+            <label for="email">Your email</label>
+            <input type="email" name="email" required>
+            <label for="phone">Phone Number</label>
+            <input type="tel" name="phone" required>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
