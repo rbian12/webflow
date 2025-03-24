@@ -69,3 +69,15 @@
 .select2-container--custom .select2-results__option[aria-disabled='true'] {
   color: var(--_colors---text--disabled);  /* Gray text color */
 }
+.select2-container {
+  z-index: 9999 !important; /* Ensure select2 dropdown is on top */
+}
+
+.swiper-slide.hidden {
+  visibility: hidden;
+  opacity: 0;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
